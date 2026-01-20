@@ -1,5 +1,6 @@
 YC Companies Search, Ranking & Change Intelligence System
-📌 Overview
+
+# Overview
 
 YC Intelligence is an end-to-end analytics and intelligence platform built on Y Combinator company data.
 It performs large-scale scraping, historical change tracking, search & ranking, trend analysis, and AI-assisted insights, exposed via high-performance APIs and visualized through a React-based analytics dashboard.
@@ -15,50 +16,43 @@ Search & scoring engines
 Self-hosted LLM integration (no external APIs)
 
 Target data source:
-👉 https://www.ycombinator.com/companies
 
-🧠 System Architecture
-┌──────────────┐
-│ YC Website   │
-└──────┬───────┘
-       ↓
-┌────────────────────────────┐
-│ Python Async Scraper       │
-│ - aiohttp / requests       │
-│ - HTML parsing             │
-│ - Retry & resume           │
-└──────┬─────────────────────┘
-       ↓
-┌────────────────────────────┐
-│ PostgreSQL Database        │
-│ - Versioned snapshots     │
-│ - Change history           │
-│ - Full-text search         │
-│ - Scores & analytics       │
-└──────┬─────────────────────┘
-       ↓
-┌────────────────────────────┐
-│ API Layer                  │
-│ - FastAPI (core services)  │
-│ - Next.js API routes       │
-└──────┬─────────────────────┘
-       ↓
-┌────────────────────────────┐
-│ Frontend (Next.js + React) │
-│ - Explorer                 │
-│ - Analytics dashboards     │
-│   
-│ - AI intelligence UI       │
-└────────────────────────────┘
-       ↓
-┌────────────────────────────┐
-│ Local LLM (Ollama)         │
-│ - phi / phi-3 model        │
-│ - RAG-based prompts        │
-│ - No external data sharing │
-└────────────────────────────┘
+ https://www.ycombinator.com/companies
 
-🗄️ Database Schema
+# System Architecture
+
+
+ YC Website   
+       ↓
+ Python Async Scraper       
+ - aiohttp / requests       
+ - HTML parsing             
+ - Retry & resume           
+       ↓
+ PostgreSQL Database        
+ - Versioned snapshots     
+ - Change history           
+ - Full-text search         
+ - Scores & analytics       
+       ↓
+ API Layer                  
+ - FastAPI (core services)  
+ - Next.js API routes       
+       ↓
+ Frontend (Next.js + React) 
+ - Explorer                 
+ - Analytics dashboards     
+ - AI intelligence UI       
+       ↓
+
+ Local LLM (Ollama)         
+ - phi / phi-3 model        
+ - RAG-based prompts        
+ - No external data sharing 
+
+
+# Database Schema
+
 companies
 
 Canonical company records.
@@ -134,7 +128,7 @@ unchanged_companies	   int
 failed_companies	   int
 avg_time_per_company_ms	numeric
 
-🔄 Change Detection Logic
+# Change Detection Logic
 
 On every scrape:
 
@@ -160,7 +154,8 @@ Deterministic change history
 
 Time-series correctness
 
-📊 Scoring & Ranking Logic
+# Scoring & Ranking Logic
+
 Momentum Score
 
 Calculated from:
@@ -185,7 +180,7 @@ Location stability
 
 Scores are computed programmatically during analytics jobs.
 
-🔍 Search System
+# Search System
 
 Implemented using PostgreSQL Full-Text Search (tsvector) on:
 
@@ -205,7 +200,7 @@ Pagination
 
 Sorting by relevance or momentum score
 
-📈 Performance Measurement
+# Performance Measurement
 
 For each company scrape:
 
@@ -233,7 +228,7 @@ Total runtime
 
 Logs are saved to scraper.log.
 
-🌐 API Endpoints
+# API Endpoints
 
 Search
 
@@ -284,7 +279,8 @@ Leaderboard
 
 GET /api/leaderboard
 
-🧠 LLM Usage (Self-Hosted)
+# LLM Usage (Self-Hosted)
+
 Model
 
 Ollama
@@ -333,7 +329,7 @@ LLM responses are computed at request time
 
 No scraped data is sent externally
 
-🖥️ Frontend Pages
+# Frontend Pages
 
 Company Explorer
 
@@ -369,7 +365,7 @@ Context-aware answers
 
 Powered by local LLM
 
-🚀 Deployment
+# Deployment
 
 Backend: FastAPI
 
@@ -379,12 +375,12 @@ Database: PostgreSQL
 
 LLM Runtime: Ollama (local)
 
-📎 Submission Info
+# Submission Info
 
 GitHub Repo: [https://github.com/Abhinand8286/yc-intelligence-ai]
 
 
-✅ Final Notes
+# Final Notes
 
 This system demonstrates:
 
@@ -401,3 +397,4 @@ High-performance APIs
 Self-hosted LLM intelligence
 
 No external APIs are used for AI inference.
+
